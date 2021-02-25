@@ -9,7 +9,7 @@ export default class PopUp {
     this.popUpRefresh.addEventListener('click',()=>{
       // 콜백이 있으면 this.onClick이 true
       this.onClick && this.onClick();
-      hide();
+      this.hide();
     })
   }
   // class에 popUp콜백으로 등록해놓을테니 네 팝업에서 버튼이 클릭되면 전달해준 onClick을 호출해라
