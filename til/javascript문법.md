@@ -1,4 +1,4 @@
-# Javascript
+# Javascript문법
 
 [toc]
 
