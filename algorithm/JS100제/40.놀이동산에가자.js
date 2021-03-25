@@ -15,7 +15,7 @@ let n = prompt('함께한 친구들 수를 입력하세요');
 for (let i=0; i <= n; i++) {
   totalWeight += parseInt(prompt('무게를 입력하세요'),10);
   if (totalWeight <= limit) {
-     cnt += i;
+    cnt += i;
   }
 }
 
