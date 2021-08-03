@@ -40,44 +40,44 @@
 
 */
 
-const 텃밭 = [
+const board = [
   [0, 0, 0, 0, 0],
   [0, 1, 0, 0, 0],
   [0, 1, 0, 0, 0],
   [0, 0, 1, 0, 0],
   [0, 0, 0, 1, 0]];
 
-function solution(텃밭){
-  const 넓이 = 텃밭[0].length;
-  const 높이 = 텃밭.length;
+function solution(board){
+  const W = board[0].length;
+  const H = board.length;
 
-  let 텃밭합 = [];
-  for (let i=0; i<텃밭.length; i++){
-    텃밭합.push(Array(텃밭.length).fill(0));
+  let SUM = [];
+  for (let i=0; i<board.length; i++){
+    SUM.push(Array(board.length).fill(0));
   }
 
-  for(let i=0; i<높이; i++){
-    for(let j=0; j<넓이; j++){
-      if (텃밭[i][j] == 0){
-        텃밭합[i][j] = 1;
+  for(let i=0; i<H; i++){
+    for(let j=0; j<W; j++){
+      if (board[i][j] == 0){
+        SUM[i][j] = 1;
       } else {
-        텃밭합[i][j] = 0;
+        SUM[i][j] = 0;
       }
     }
   }
 
-  for(let i=1; i<높이; i++){
-    for(let j=1; j<넓이; j++){
-      if (텃밭합[i][j] == 1){
+  for(let i=1; i<H; i++){
+    for(let j=1; j<W; j++){
+      if (SUM[i][j] == 1){
         let min;
-        if(텃밭합[i-1][j] > 텃밭합[i][j-1]){
-          min = 텃밭합[i][j-1];
-        } else if (텃밭합[i-1][j-1] > 텃밭합[i-1][j]) {
-          min = 텃밭합[i-1][j];
+        if(SUM[i-1][j] > SUM[i][j-1]){
+          min = SUM[i][j-1];
+        } else if (SUM[i-1][j-1] > SUM[i-1][j]) {
+          min = SUM[i-1][j];
         } else {
-          min = 텃밭합[i-1][j-1]
+          min = SUM[i-1][j-1]
         }
-        텃밭합[i][j] = min + 1;
+        SUM[i][j] = min + 1;
       }
     }
   }
@@ -86,10 +86,10 @@ function solution(텃밭){
   let x = 0;
   let y = 0;
 
-  for (let i=0; i<높이; i++){
-    for (let j=0; j<넓이; j++){
-      if (maxValue < 텃밭합[i][j]){
-        maxValue = 텃밭합[i][j]
+  for (let i=0; i<H; i++){
+    for (let j=0; j<W; j++){
+      if (maxValue < SUM[i][j]){
+        maxValue = SUM[i][j]
         x = i
         y = j
       }
@@ -101,11 +101,11 @@ function solution(텃밭){
 
   for(let i=x - (maxValue - 1); i<x+1; i++){
     for(let j=y - (maxValue - 1); j<y + 1; j++){
-      텃밭[i][j] = '#';
+      board[i][j] = '#';
     }
   }
 
-  return 텃밭;
+  return board;
 }
 
-console.log(solution(텃밭));
+console.log(solution(board));
