@@ -17,49 +17,49 @@
 이대리,'5,300,000','S은행','100-0000-0000-005'
 ``` */
 
-const 입력값 = `이대표,'333,356,766','S은행','100-0000-0000-001'
+const INPUT = `이대표,'333,356,766','S은행','100-0000-0000-001'
 최차장,'5,000,000','S은행','100-0000-0000-002'
 이과장,'3,200,000','S은행','100-0000-0000-003'
 홍팀장,'3,300,000','S은행','100-0000-0000-004'
 이대리,'5,300,000','S은행','100-0000-0000-005'`
 
-let 나눠진입력값 = 입력값.split('\n');
-let 숫자값 = [];
+let DIV = INPUT.split('\n');
+let NUMS = [];
 
-for (let i of 나눠진입력값){
+for (let i of DIV){
   let j = i.split(',');
   let k = j.slice(1, j.length-2);
-  숫자값.push(k.join(''))
+  NUMS.push(k.join(''))
 }
 
-console.log(숫자값);
-let 월급하나 = '';
-let 월급둘 = '';
+console.log(NUMS);
+let ONE = '';
+let TWO = '';
 let result = [];
-for (let 월급 of 숫자값){
-  console.log(월급)
-  for (let 나뉜월급 of 월급){
-    console.log(나뉜월급)
-    if (나뉜월급 != '\''){
-      if (나뉜월급 == 3){
-        월급하나 += '1';
-        월급둘+= '2';
-      } else if (나뉜월급 == 4){
-        월급하나 += '2';
-        월급둘+= '2';
-      } else if (나뉜월급 == 6){
-        월급하나 += '1';
-        월급둘+= '5';
+for (let N of NUMS){
+  console.log(N)
+  for (let divn of N){
+    console.log(divn)
+    if (divn != '\''){
+      if (divn == 3){
+        ONE += '1';
+        TWO+= '2';
+      } else if (divn == 4){
+        ONE += '2';
+        TWO+= '2';
+      } else if (divn == 6){
+        ONE += '1';
+        TWO+= '5';
       } else {
-        월급하나 += 나뉜월급;
-        월급둘+= '0';
+        ONE += divn;
+        TWO+= '0';
       }
     }
   }
-  console.log(월급하나);
-  console.log(월급둘);
-  result.push([parseInt(월급하나, 10), parseInt(월급둘, 10)]);
-  월급하나 = '';
-  월급둘 = '';
+  console.log(ONE);
+  console.log(TWO);
+  result.push([parseInt(ONE, 10), parseInt(TWO, 10)]);
+  ONE = '';
+  TWO = '';
 }
 console.log(result);
