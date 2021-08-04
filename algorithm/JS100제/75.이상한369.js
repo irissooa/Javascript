@@ -11,21 +11,21 @@ n을 입력하면 박수를 몇 번 쳤는지 그 숫자를 출력해주세요.
 
 */
 
-// function sol(n){
-//     let answer = 0;
-//     let count = 1;
-//     const d = {3 : 1, 6 : 2, 9 : 3};
+function sol(n){
+    let answer = 0;
+    let count = 1;
+    const d = {3 : 1, 6 : 2, 9 : 3};
     
-//     while (n.length !== 0){
-//         answer += d[parseInt(n.pop(), 10)] * count;
-//         count *= 3;
-//     }       
-//     return answer;
-// }
+    while (n.length !== 0){
+        answer += d[parseInt(n.pop(), 10)] * count;
+        count *= 3;
+    }       
+    return answer;
+}
 
-// const user_input = new String(prompt('입력해주세요')).split('');
+const user_input = new String(prompt('입력해주세요')).split('');
 
-// console.log(sol(user_input));
+console.log(sol(user_input));
 
 // 다시풀기
 function clap(num) {
